@@ -215,37 +215,37 @@ confusionMatrix(regressionTreePrediction, testing$classe)</code></pre>
 ## $table
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 1342   42    9    3    0
-##          B   37  792   52   32    0
-##          C   16  110  781   78   39
-##          D    0    5    9  567   55
-##          E    0    0    4  124  807
+##          A 1351   38    3    2    0
+##          B   29  797   60   42    0
+##          C   15  106  779  107   38
+##          D    0    8   13  618  107
+##          E    0    0    0   35  756
 ## 
 ## $overall
 ##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##      0.8745922      0.8413159      0.8649977      0.8837382      0.2844617 
+##      0.8770392      0.8445095      0.8675211      0.8861057      0.2844617 
 ## AccuracyPValue  McnemarPValue 
 ##      0.0000000            NaN 
 ## 
 ## $byClass
 ##          Sensitivity Specificity Pos Pred Value Neg Pred Value Precision
-## Class: A   0.9620072   0.9846110      0.9613181      0.9848917 0.9613181
-## Class: B   0.8345627   0.9694058      0.8674699      0.9606615 0.8674699
-## Class: C   0.9134503   0.9399852      0.7626953      0.9809278 0.7626953
-## Class: D   0.7052239   0.9831707      0.8915094      0.9444705 0.8915094
-## Class: E   0.8956715   0.9680240      0.8631016      0.9763165 0.8631016
+## Class: A   0.9684588   0.9877458      0.9691535      0.9874644 0.9691535
+## Class: B   0.8398314   0.9668774      0.8588362      0.9617706 0.8588362
+## Class: C   0.9111111   0.9343048      0.7454545      0.9803058 0.7454545
+## Class: D   0.7686567   0.9687805      0.8284182      0.9552670 0.8284182
+## Class: E   0.8390677   0.9912566      0.9557522      0.9647459 0.9557522
 ##             Recall        F1 Prevalence Detection Rate
-## Class: A 0.9620072 0.9616625  0.2844617      0.2736542
-## Class: B 0.8345627 0.8506982  0.1935155      0.1615008
-## Class: C 0.9134503 0.8312932  0.1743475      0.1592577
-## Class: D 0.7052239 0.7875000  0.1639478      0.1156199
-## Class: E 0.8956715 0.8790850  0.1837276      0.1645595
+## Class: A 0.9684588 0.9688060  0.2844617      0.2754894
+## Class: B 0.8398314 0.8492275  0.1935155      0.1625204
+## Class: C 0.9111111 0.8200000  0.1743475      0.1588499
+## Class: D 0.7686567 0.7974194  0.1639478      0.1260196
+## Class: E 0.8390677 0.8936170  0.1837276      0.1541599
 ##          Detection Prevalence Balanced Accuracy
-## Class: A            0.2846656         0.9733091
-## Class: B            0.1861746         0.9019843
-## Class: C            0.2088091         0.9267177
-## Class: D            0.1296900         0.8441973
-## Class: E            0.1906607         0.9318477
+## Class: A            0.2842577         0.9781023
+## Class: B            0.1892333         0.9033544
+## Class: C            0.2130914         0.9227079
+## Class: D            0.1521207         0.8687186
+## Class: E            0.1612969         0.9151621
 ## 
 ## $mode
 ## [1] &quot;sens_spec&quot;
@@ -262,15 +262,15 @@ confusionMatrix(regressionTreePrediction, testing$classe)</code></pre>
 svmPrediction &lt;- predict(svmModel, testing)
 accuracy=sum(svmPrediction==testing$classe)/dim(testing)[[1]]
 print(accuracy)</code></pre>
-<pre><code>## [1] 0.9100734</code></pre>
+<pre><code>## [1] 0.9017129</code></pre>
 </div>
-<div id="support-vector-machine---linear-kernel-1" class="section level2">
-<h2>Support vector machine - linear kernel</h2>
+<div id="support-vector-machine---radial-kernel" class="section level2">
+<h2>Support vector machine - radial kernel</h2>
 <pre class="r"><code>svmModel&lt;-svm(classe~.,data=training,kernel=&quot;radial&quot;)
 svmPrediction &lt;- predict(svmModel, testing)
 accuracy=sum(svmPrediction==testing$classe)/dim(testing)[[1]]
 print(accuracy)</code></pre>
-<pre><code>## [1] 0.9537113</code></pre>
+<pre><code>## [1] 0.9451468</code></pre>
 </div>
 <div id="random-forest-trees" class="section level2">
 <h2>Random forest trees</h2>
@@ -283,37 +283,37 @@ confusionMatrix(randomForestPrediction, testing$classe)</code></pre>
 ## $table
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 1393    0    0    0    0
-##          B    2  949    3    0    0
+##          A 1395    0    0    0    0
+##          B    0  949    2    0    0
 ##          C    0    0  851    1    0
-##          D    0    0    1  803    2
-##          E    0    0    0    0  899
+##          D    0    0    2  802    2
+##          E    0    0    0    1  899
 ## 
 ## $overall
 ##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##      0.9981648      0.9976788      0.9965190      0.9991605      0.2844617 
+##      0.9983687      0.9979366      0.9967882      0.9992955      0.2844617 
 ## AccuracyPValue  McnemarPValue 
 ##      0.0000000            NaN 
 ## 
 ## $byClass
 ##          Sensitivity Specificity Pos Pred Value Neg Pred Value Precision
-## Class: A   0.9985663   1.0000000      1.0000000      0.9994304 1.0000000
-## Class: B   1.0000000   0.9987358      0.9947589      1.0000000 0.9947589
+## Class: A   1.0000000   1.0000000      1.0000000      1.0000000 1.0000000
+## Class: B   1.0000000   0.9994943      0.9978970      1.0000000 0.9978970
 ## Class: C   0.9953216   0.9997530      0.9988263      0.9990128 0.9988263
-## Class: D   0.9987562   0.9992683      0.9962779      0.9997560 0.9962779
-## Class: E   0.9977802   1.0000000      1.0000000      0.9995006 1.0000000
+## Class: D   0.9975124   0.9990244      0.9950372      0.9995120 0.9950372
+## Class: E   0.9977802   0.9997502      0.9988889      0.9995005 0.9988889
 ##             Recall        F1 Prevalence Detection Rate
-## Class: A 0.9985663 0.9992826  0.2844617      0.2840538
-## Class: B 1.0000000 0.9973726  0.1935155      0.1935155
+## Class: A 1.0000000 1.0000000  0.2844617      0.2844617
+## Class: B 1.0000000 0.9989474  0.1935155      0.1935155
 ## Class: C 0.9953216 0.9970709  0.1743475      0.1735318
-## Class: D 0.9987562 0.9975155  0.1639478      0.1637439
-## Class: E 0.9977802 0.9988889  0.1837276      0.1833197
+## Class: D 0.9975124 0.9962733  0.1639478      0.1635400
+## Class: E 0.9977802 0.9983343  0.1837276      0.1833197
 ##          Detection Prevalence Balanced Accuracy
-## Class: A            0.2840538         0.9992832
-## Class: B            0.1945351         0.9993679
+## Class: A            0.2844617         1.0000000
+## Class: B            0.1939233         0.9997472
 ## Class: C            0.1737357         0.9975373
-## Class: D            0.1643556         0.9990123
-## Class: E            0.1833197         0.9988901
+## Class: D            0.1643556         0.9982684
+## Class: E            0.1835237         0.9987652
 ## 
 ## $mode
 ## [1] &quot;sens_spec&quot;
@@ -323,6 +323,21 @@ confusionMatrix(randomForestPrediction, testing$classe)</code></pre>
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;confusionMatrix&quot;</code></pre>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="selected-model" class="section level2">
+<h2>Selected model</h2>
+<p>With 99% accuracy, random forest was selected as preffered regression.</p>
+</div>
+<div id="running-test-setpredicting-lables" class="section level2">
+<h2>Running test set,predicting lables</h2>
+<pre class="r"><code>randomForestTestPredict &lt;- predict(randomForestModel, org_testing, type = &quot;class&quot;)
+print(randomForestTestPredict)</code></pre>
+<pre><code>##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+## Levels: A B C D E</code></pre>
 </div>
 </div>
 

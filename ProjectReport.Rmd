@@ -3,8 +3,8 @@ title: 'Practical machine learning - Wearables sensors analysis '
 author: "Eran Shlomo"
 date: "February 15, 2017"
 output:
-  html_document: default
   word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
